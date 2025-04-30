@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title> Wanderlust</title>
+  </head>
+  <body>
+    <div id="loginModal" class="login-modal">
+      <div class="login-box">
+        <span class="close-btn" onclick="toggleLoginModal()">×</span>
+  
+        <div class="auth-tabs">
+          <button class="auth-tab active" onclick="showTab('login')">Login</button>
+          <button class="auth-tab" onclick="showTab('register')">Register</button>
+        </div>
+  
+        <div id="loginForm" class="auth-form active">
+          <input type="text" id="loginUsername" placeholder="Username" />
+          <input type="password" id="loginPassword" placeholder="Password" />
+          <button class="btn" onclick="handleLogin()">Login</button>
+        </div>
+  
+        <div id="registerForm" class="auth-form">
+          <input type="text" id="registerUsername" placeholder="Choose a username" />
+          <input type="password" id="registerPassword" placeholder="Choose a password" />
+          <button class="btn" onclick="handleRegister()">Register</button>
+        </div>
+      </div>
+    </div>
+  
+    <header class="header">
+      <nav>
+        
+        <div class="nav__logo"><a href="#">Wanderlust</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="#home">Home</a></li>
+          <li class="link"><a href="#trending">Trending</a></li>
+          <li class="link"><a href="#destination">Destinations</a></li>
+        </ul>
+        <div class="nav__auth">
+          <button class="btn login-btn" onclick="toggleLoginModal()">Login</button>
+        </div>
+        
+      </nav>
+      <div class="section__container header__container" id="home">
+        <h1>Explore the beauty of nature </h1>
+        <div class="header__form">
+          <form id="availabilityForm">
+            <div class="input__group">
+              <label for="destination">Where do you want to go?</label>
+                <select name="destination" required>
+                  <option value="">Select a place</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Dubai">Dubai</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Tokyo">Tokyo</option>
+                  <option value="Himalayas">Himalayas</option>
+                
+                  <!-- Newly Added Places -->
+                  <option value="Munnar">Munnar</option>
+                  <option value="Ooty & Kodaikanal">Ooty & Kodaikanal</option>
+                  <option value="Manali">Manali</option>
+                  <option value="Darjeeling">Darjeeling</option>
+                  <option value="Ladakh">Ladakh</option>
+                  <option value="Varkala">Varkala</option>
+                  <option value="Aleppey">Aleppey</option>
+                  <option value="Gokarna">Gokarna</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Coorg">Coorg</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="South and North Korea">South and North Korea</option>
+                  <option value="Singapore & Malaysia">Singapore & Malaysia</option>
+                  <option value="Bali">Bali</option>
+                </select>
+              
+            </div>
+            <div class="input__group">
+              <label for="checkIn">Check In</label>
+              <input type="date" name="checkIn" required />
+            </div>
+            <div class="input__group">
+              <label for="checkOut">Check Out</label>
+              <input type="date" name="checkOut" required />
+            </div>
+            <div class="input__group">
+              <label for="guests">Guests</label>
+              <input type="number" name="guests" required placeholder="Number of guests" />
+            </div>
+            <button class="btn" type="submit">CHECK AVAILABILITY</button>
+          </form>
+
+          </form>
+        </div>
+      </div>
+    </header>
+    <section class="section__container trending__container" id="trending">
+      <div class="section__header">
+        <h2 class="section__title">Trending 2025</h2>
+        <div class="section__nav">
+    
+        </div>
+      </div>
+      <div class="trending__grid">
+    
+        <!-- Mountain Hiking Card -->
+        <a href="mountain.html" class="card-link">
+          <div class="trending__card">
+            <img src="assets/trending-1.jpg" alt="Mountain Hiking Tour" />
+            <h1>Mountain Hiking Tour</h1>
+            <p>Hiking Our | Stoke On Trent</p>
+            <div class="trending__details">
+              <div class="price">
+                <p>From</p>
+                <h3>12,000</h3>
+                <p>*Price varies</p>
+              </div>
+              <div class="trending__ratings">
+                <!-- ratings if any -->
+              </div>
+            </div>
+            <h5>🗓️ 7 days</h5>
+            <p>✔️ Free Cancellation</p>
+          </div>
+        </a>
+    
+        <!-- Train Tour Skyline Card -->
+        <a href="train.html" class="card-link">
+          <div class="trending__card">
+            <img src="assets/trending-2.jpg" alt="Train Tour Skyline" />
+            <h1>Train Tour Skyline</h1>
+            <p>Adventure Journey | Group Tour</p>
+            <div class="trending__details">
+              <div class="price">
+                <p>From</p>
+                <h3>14,000</h3>
+                <p>*Price varies</p>
+              </div>
+              <div class="trending__ratings">
+                <!-- ratings if any -->
+              </div>
+            </div>
+            <h5>🗓️ 3 days</h5>
+            <p>✔️ Free Cancellation</p>
+          </div>
+        </a>
+    
+        <!-- Wild Forest Life Card -->
+        <a href="beach.html" class="card-link">
+          <div class="trending__card">
+            <img src="assets/trending-3.jpg" alt="Wild Forest Life" />
+            <h1> Beach Life</h1>
+            <p>Scenic Beauty | Adrenaline Rush</p>
+            <div class="trending__details">
+              <div class="price">
+                <p>From</p>
+                <h3>15,000</h3>
+                <p>*Price varies</p>
+              </div>
+              <div class="trending__ratings">
+                <!-- ratings if any -->
+              </div>
+            </div>
+            <h5>🗓️ 6 days</h5>
+            <p>✔️ Free Cancellation</p>
+          </div>
+        </a>
+    
+      </div>
+    </section>
+    
+    </section>
+
+    <section class="section__container destination__container" id="destination">
+      <div class="section__header">
+        <h2 class="section__title">Top Destinations Gallery</h2>
+        <div class="section__nav">
+        </div>
+      </div>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="assets/destination-1.jpg" alt="destination" />
+          <div class="badge">4.7</div>
+          <div class="destination__details">
+            <h4>Himalayas</h4>
+            <p>Mountains</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-2.jpg" alt="destination" />
+          <div class="badge">4.5</div>
+          <div class="destination__details">
+            <h4>London</h4>
+            <p>Beauty</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-3.jpg" alt="destination" />
+          <div class="badge">4.3</div>
+          <div class="destination__details">
+            <h4>Tokyo</h4>
+            <p>Tradition</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-4.jpg" alt="destination" />
+          <div class="badge">4.8</div>
+          <div class="destination__details">
+            <h4>Greece</h4>
+            <p>White Dome</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-5.jpg" alt="destination" />
+          <div class="badge">4.2</div>
+          <div class="destination__details">
+            <h4>Sydney</h4>
+            <p>Waterfall</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-6.jpg" alt="destination" />
+          <div class="badge">4.7</div>
+          <div class="destination__details">
+            <h4>Amsterdam</h4>
+            <p>Peace</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__container seller__container" id="seller">
+      <section class="section__container package__container" id="packages" style="display: none;">
+        <div class="section__header">
+          <h2 class="section__title" id="packageTitle">Packages</h2>
+          <button class="btn" onclick="closePackages()">Close</button>
+        </div>
+        <div id="packageList" class="package__list"></div>
+      </section>
+      <div id="packageModal" class="package-modal">
+        <div class="package-modal-content">
+          <span class="close-btn" onclick="closePackageModal()">×</span>
+          <h2 id="modalTitle">Trip Details</h2>
+          <div id="modalBody"></div>
+        </div>
+      </div>  
+      <div class="section__header">
+        <h2 class="section__title">Best Seller</h2>
+        <div class="section__btn">
+          <button class="btn">Check All</button>
+        </div>
+      </div>
+      <div class="seller__grid">
+        <div class="seller__card">
+          <div class="seller__image">
+            <img src="assets/seller1.jpg" alt="seller" />
+            <div class="seller__image__content">
+              <div class="badge">30%</div>
+              <div class="seller__image__footer">
+                <div class="seller__price">
+                  <p>10 Days | 09 Nights</p>
+                  <h4>15,000</h4>
+                </div>
+                <button class="btn" onclick="showPackageModal('europe')">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="seller__details">
+            <h4>EUROPE</h4>
+            <p>Embark on a scenic adventure with Tour Skyline</p>
+          </div>
+        </div>
+        <div class="seller__card">
+          <div class="seller__image">
+            <img src="assets/seller2.jpg" alt="seller" />
+            <div class="seller__image__content">
+              <div class="badge">20%</div>
+              <div class="seller__image__footer">
+                <div class="seller__price">
+                  <p>05 Days | 06 Nights</p>
+                  <h4>16,000</h4>
+                </div>
+                <button class="btn" onclick="showPackageModal('maldives')">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="seller__details">
+            <h4>MALDIVES</h4>
+            <p>Where the ocean's beauty meets your soul's serenity</p>
+          </div>
+        </div>
+        <div class="seller__card">
+          <div class="seller__image">
+            <img src="assets/seller3.jpg" alt="seller" />
+            <div class="seller__image__content">
+              <div class="badge">25%</div>
+              <div class="seller__image__footer">
+                <div class="seller__price">
+                  <p>07 Days | 06 Nights</p>
+                  <h4>14,000</h4>
+                </div>
+                <button class="btn" onclick="showPackageModal('dubai')">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="seller__details">
+            <h4>DUBAI</h4>
+            <p>Where Glitz and glamour Modern in Every Aisle</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div class="section__container subscribe__container">
+        <h4>Subscribe and be Updated</h4>
+        <form action="/">
+          <input type="text" placeholder="Please enter your email address" />
+          <button class="btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h5>Wanderlust</h5>
+          <p>
+            Welcome to Wanderlust, our tour and travel website is your gateway
+            to a world of wanderlust inducing experiences.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#destination">Destinations</a>
+          <a href="#subscribe">Write to Us</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer__col">
+          <h4>Features</h4>
+          <a href="#">Vacation Package</a>
+          <a href="#">List of Tours</a>
+          <a href="#">Gallery</a>
+          <a href="#">Travel on a Budget</a>
+        </div>
+        <div class="footer__col">
+          <h4>Follow Us</h4>
+          <div class="footer__socials">
+            <span>
+              <a href="#"><i class="ri-twitter-fill"></i></a>
+            </span>
+            <span>
+              <a href="#"><i class="ri-linkedin-fill"></i></a>
+            </span>
+            <span>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </span>
+            <span>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

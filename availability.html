@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Availability</title>
+  <style>
+    .availability__container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .availability__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .availability__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .available { color: green; font-weight: bold; }
+    .not-available { color: red; font-weight: bold; }
+
+    /* Booking Modal */
+    .package-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .package-modal.active { display: flex; }
+
+    .package-modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .package-modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .package-modal-content input {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="availability__container">
+    <h2>Destination Availability</h2>
+    <div id="availabilityList" class="availability__list"></div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="package-modal">
+    <div class="package-modal-content">
+      <span class="close-btn" onclick="closeBookingModal()">×</span>
+      <h2 id="bookingTitle">Book Your Trip</h2>
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <input type="text" name="place" id="bookingPlace" readonly />
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="number" name="guests" placeholder="Number of Guests" required />
+        <input type="date" name="date" required />
+        <button class="btn" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+  <ul id="availabilityList"></ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+    const list = document.getElementById("availabilityList");
+
+    if (bookings.length === 0) {
+      list.innerHTML = "<li>No bookings found.</li>";
+      return;
+    }
+
+    list.innerHTML = bookings.map(b =>
+      `<li><strong>${b.place}</strong> on ${b.date} for ${b.guests} guests (Booked by ${b.name})</li>`
+    ).join("");
+  });
+</script>
+
+
+  <script src="availability.js"></script>
+</body>
+</html>
